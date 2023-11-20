@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('rrhh_punto_asistencia', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre', 255);
+            $table->string('direccion', 255);
+            $table->string('responsable', 255);
+            $table->string('direccion_mac', 45);
+            $table->integer('id_sucursal');
+            $table->integer('id_almacen');
             $table->timestamps();
+
+            // Claves foráneas
+            // $table->foreign('id_sucursal')->references('id')->on('inv_sucursal');
+            // $table->foreign('id_almacen')->references('id')->on('inv_almacen');
         });
     }
 

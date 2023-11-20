@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rrhh_turno', function (Blueprint $table) {
+        Schema::create('rrhh_personal', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 255);
-            $table->time('hora_ingreso');
-            $table->time('hora_salida');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rrhh_turno');
+        Schema::dropIfExists('rrhh_personal');
     }
 };

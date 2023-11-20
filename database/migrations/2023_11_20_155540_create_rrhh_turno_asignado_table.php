@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('rrhh_turno_asignado', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_turno');
+            $table->integer('id_personal');
+            $table->integer('ind_tipo_marcado');
+            $table->integer('ind_marcado_fijo_variable');
+            $table->integer('id_punto_asistencia')->nullable();
             $table->timestamps();
+
+            // Claves foráneas
+            // $table->foreign('id_turno')->references('id')->on('rrhh_turno');
+            // $table->foreign('id_personal')->references('id')->on('rrhh_personal'); 
+            // $table->foreign('id_punto_asistencia')->references('id')->on('rrhh_punto_asistencia')->nullable();
         });
     }
 
