@@ -36,38 +36,11 @@ Route::get('/register_finger', [RegisterFingerController::Class, 'index'])->name
 
 // Métodos POST
 
-// Route::post('/register', function (Request $request) {
-//     $newUser = new User;
-//     $newUser->name = $request->input('name');
-//     $newUser->ci = $request->input('ci');
-//     $newUser->turno = $request->input('turno');
-//     // ventana emergente de la huella
-//     // $fingerRec = redirect()->route('register_finger');
-//     $newUser->finger = "";
-//     $newUser->save();
-
-//     return redirect()->route('verify')->with('shipping-report', 'Datos guardados exitosamente');
-// })->name('register.save');
-
 
 
 
 Route::post('/register', [RegisterController::class, 'index'  ])->name('register.send');
 
-// Route::post('/register', 'RegisterController@index')->name('register.send');
-// Route::post('/register', function () {
-//     dd(userDataJSON);
-// });
-
-
-//cambio de eprueba
-
-
-
-
-
-
-// Route::match(['get', 'post'], '/register2', 'biometricoController@metodo');
 
 
 // rutas adm
