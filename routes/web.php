@@ -21,7 +21,6 @@ Route::get('/', function () {
 });
 
 Route::get('/verify', function () {
-
     return view('verify');
 })->name('verify');
 
