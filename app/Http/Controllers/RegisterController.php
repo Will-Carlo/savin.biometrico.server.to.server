@@ -12,8 +12,6 @@ class RegisterController extends Controller
             'name' => $request->input('name'),
             'ci' => $request->input('ci'),
             'turno' => $request->input('turno'),
-            'finger' => "",
-            'macaddress' => "",
         ];
 
         // Convierte los datos a JSON
@@ -33,7 +31,7 @@ class RegisterController extends Controller
         // Aquí puedes realizar la lógica necesaria para enviar el JSON a otra función o servidor
         // Por ejemplo, puedes utilizar la función Http::post() de Laravel para enviar el JSON a otra URL
         // Ejemplo:
-        Http::post('http://192.168.1.148:8080/WaitingDataRegister', ['userData' => $userDataJSON]);
+        Http::post('http://localhost:8081', ['userData' => $userDataJSON]);
         dd (json_decode($userDataJSON));
         // En esta URL, debes manejar la recepción y procesamiento del JSON que estás enviando
         // Asegúrate de adaptar esta función a tus necesidades específicas y lógica de envío de datos.
