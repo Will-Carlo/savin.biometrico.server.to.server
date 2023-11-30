@@ -20,9 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/verify', function () {
-    return view('verify');
-})->name('verify');
 
 Route::get('/options', function () {
     return view('options');
@@ -35,11 +32,13 @@ Route::get('/register', function () {
 // Métodos POST
 
 Route::post('/register', [RegisterController::class, 'index'  ])->name('register.send');
-Route::post('/verify', [VerifyController::class, 'index'  ])->name('verify.send');
-// Route::post('/verify', function () {
-//     return view('register');
-// })->name('verify.send');
 
+
+// ROUTES verify
+
+Route::post('/verify', [VerifyController::class, 'index'  ])->name('verify.send');
+Route::get('/verify', [VerifyController::class, 'show'  ])->name('verify');
+Route::post('/verify', [VerifyController::class, 'lastEmployee'])->name('verify.last');
 
 // rutas adm
 

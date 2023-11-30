@@ -41,6 +41,17 @@ class VerifyController extends Controller
         // $userData = json_decode($data['userData'], true);
         // dd($data);
         $employee = User::find($data['idClient']);
-        dd($employee->toArray());
+        return view('verify', $employee);
+        // dd($employee->toArray());
+    }
+
+
+    function show() {
+        return view('verify');
+    }
+
+
+    function lastEmployee(Request $request){
+        
     }
 }
