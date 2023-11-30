@@ -40,11 +40,11 @@
               </div>
               <h6>Último Marcado</h6>
               @isset($employee)
-              <p>Personal: {{ $employee -> name }}</p>
-              <p>Hora: {{ $employee -> time }}</p>
+                <p>Personal: {{ $employee -> name }}</p>
+                <p>Horas: </p>
               @else
-              <p>Personal: </p>
-              <p>Hora: </p>
+                <p>Personal: </p>
+                <p>Hora: </p>
               @endisset
           </form>
       </div>
