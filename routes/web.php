@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VerifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,23 +32,22 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/register_finger', [RegisterFingerController::Class, 'index'])->name('register_finger'); 
-
 // Métodos POST
 
-
-
-
 Route::post('/register', [RegisterController::class, 'index'  ])->name('register.send');
-
+Route::post('/verify', [VerifyController::class, 'index'  ])->name('verify.send');
+// Route::post('/verify', function () {
+//     return view('register');
+// })->name('verify.send');
 
 
 // rutas adm
 
-Route::get('/adm.index', function () {
+Route::get('/adm', function () {
     $users = User::all();
-    return view('adm.index', compact('users'));
-})->name('adm.index');
+    return $users;
+    // return view('adm.index', compact('users'));
+})->name('adm');
 
 
 

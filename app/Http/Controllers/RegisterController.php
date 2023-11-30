@@ -41,6 +41,8 @@ class RegisterController extends Controller
     function saveData($dataJson) {
         $data = json_decode($dataJson, true);
         $userData = json_decode($data['userData'], true);
+        $userFinger = json_decode($data['finger'], true);
+
         // $finger = $data['finger'];
 
         //$userData = $dataJson['userData'];
@@ -50,7 +52,7 @@ class RegisterController extends Controller
         $newUser->name = $userData['name'];
         $newUser->ci = $userData['ci'];
         $newUser->turno = $userData['turno'];
-        $newUser->finger = $data['finger'];
+        $newUser->finger = $userFinger['FingerData'];
         $newUser->save();
     }
 }

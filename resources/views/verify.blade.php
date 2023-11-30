@@ -19,9 +19,14 @@
                 <div class="card">
                     <div class="card-header">
                         Verificación de Personal
-                        <a href="{{route('verify.send')}}" class="btn btn-success btn-sm float-rigth">Registrar</a>
+                        <!-- <a href="{{route('register')}}" class="btn btn-success btn-sm float-rigth">register</a> -->
                     </div>
-                    
+                    <div class="car-body">
+                    <form action="{{ route('verify.send')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-primary">Verificar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

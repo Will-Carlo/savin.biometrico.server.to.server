@@ -11,6 +11,7 @@ class VerifyController extends Controller
     public function index(Request $request){
         $usersData = User::select('id','finger')->get();
         $jsonUsersData = $usersData->toJson();
+        // dd($jsonUsersData);
         $this->sendVerifyJson($jsonUsersData);
         
         
@@ -23,8 +24,9 @@ class VerifyController extends Controller
         
         $response = Http::post('http://localhost:8089/verify', ['userData' => $userDataJSON]);
         
+        
         if ($response->successful()) {
-            dd (json_decode($response));
+            // dd(json_decode($response));
             $this->showEmployee($response);
         } else {
             $statusCode = $response->status();
@@ -35,8 +37,10 @@ class VerifyController extends Controller
     
     function showEmployee($dataJson) {
         $data = json_decode($dataJson, true);
-       // $userData = json_decode($data['userData'], true);
-         $employee = User::find($data['id']);
-        dd($employee);
+        // $userID = json_decode($data['idClient'], true);
+        // $userData = json_decode($data['userData'], true);
+        // dd($data);
+        $employee = User::find($data['idClient']);
+        dd($employee->toArray());
     }
 }

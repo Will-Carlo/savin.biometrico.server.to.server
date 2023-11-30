@@ -8,7 +8,6 @@
                 <div class="card">
                     <div class="card-header">
                         Registro Personal
-                        <!-- <a href="{{route('register_finger')}}" class="btn btn-success btn-sm float-rigth">Registrar</a> -->
                     </div>
                     <div class="card-body">
                         <form action="{{ route('register.send')}}" method="POST">
