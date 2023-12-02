@@ -20,7 +20,7 @@ return new class extends Migration
             $table->time('hora_marcado');
             $table->integer('minutos_atraso');
             $table->integer('ind_tipo_movimiento');
-            $table->binary('captura_imagen')->nullable(); // Campo BLOB
+           // $table->binary('captura_imagen')->nullable(); // Campo BLOB
             $table->timestamps();
 
             // Claves foráneas

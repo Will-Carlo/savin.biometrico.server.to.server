@@ -19,8 +19,12 @@
       <div class="card">
       
       <div class="card-header text-center">
-                <h1 class="mx-auto">Sistema de Asistencia: PUNTO ZAPATA</h1>
-            </div>
+      @auth
+          <h1 class="mx-auto">Sistema de Asistencia: {{ $nameStore }}</h1>
+      @else
+          <h1 class="mx-auto">Sistema de Asistencia: no login</h1> 
+      @endauth
+      </div>
       
       
       <div class="row">

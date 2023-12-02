@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('rrhh_personal', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->binary('finger');
             $table->timestamps();
         });
     }

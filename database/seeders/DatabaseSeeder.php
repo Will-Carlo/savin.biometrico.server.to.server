@@ -20,5 +20,48 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        \App\Models\RrhhTurno::factory()->create([
+            'nombre'=>'Completo Mañana',
+            'hora_ingreso'=>'08:30:00',
+            'hora_salida'=>'12:30:00',
+        ]);
+        \App\Models\RrhhTurno::factory()->create([
+            'nombre'=>'Completo Tarde',
+            'hora_ingreso'=>'12:30:00',
+            'hora_salida'=>'19:00:00',
+        ]);
+        \App\Models\RrhhTurno::factory()->create([
+            'nombre'=>'Completo Sábado',
+            'hora_ingreso'=>'09:00:00',
+            'hora_salida'=>'13:00:00',
+        ]);
+        \App\Models\RrhhTurno::factory()->create([
+            'nombre'=>'Medio Tiempo Mañana',
+            'hora_ingreso'=>'08:30:00',
+            'hora_salida'=>'12:30:00',
+        ]);
+        \App\Models\RrhhTurno::factory()->create([
+            'nombre'=>'Medio Tiempo Tarde',
+            'hora_ingreso'=>'12:30:00',
+            'hora_salida'=>'19:00:00',
+        ]);
+
+        \App\Models\InvSucursal::factory()->create();
+        \App\Models\InvSucursal::factory()->create();
+        \App\Models\InvSucursal::factory()->create();
+        \App\Models\InvSucursal::factory()->create();
+        \App\Models\InvAlmacen::factory()->create();
+        \App\Models\InvAlmacen::factory()->create();
+        \App\Models\InvAlmacen::factory()->create();
+        \App\Models\InvAlmacen::factory()->create();
+
+
+        \App\Models\RrhhPuntoAsistencia::factory()->create([
+            
+        ]);
+
+        
+
     }
 }
