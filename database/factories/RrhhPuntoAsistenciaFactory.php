@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rrhh_punto_asistencia>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RrhhPuntoAsistencia>
  */
 class RrhhPuntoAsistenciaFactory extends Factory
 {

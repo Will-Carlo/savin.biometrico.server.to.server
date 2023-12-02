@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rrhh_personal;
+use App\Models\RrhhPersonal;
 use Illuminate\Http\Request;
 
 class RrhhPersonalController extends Controller
@@ -41,10 +41,10 @@ class RrhhPersonalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rrhh_personal  $rrhh_personal
+     * @param  \App\Models\RrhhPersonal  $rrhhPersonal
      * @return \Illuminate\Http\Response
      */
-    public function show(Rrhh_personal $rrhh_personal)
+    public function show(RrhhPersonal $rrhhPersonal)
     {
         //
     }
@@ -52,10 +52,10 @@ class RrhhPersonalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rrhh_personal  $rrhh_personal
+     * @param  \App\Models\RrhhPersonal  $rrhhPersonal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rrhh_personal $rrhh_personal)
+    public function edit(RrhhPersonal $rrhhPersonal)
     {
         //
     }
@@ -64,10 +64,10 @@ class RrhhPersonalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rrhh_personal  $rrhh_personal
+     * @param  \App\Models\RrhhPersonal  $rrhhPersonal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rrhh_personal $rrhh_personal)
+    public function update(Request $request, RrhhPersonal $rrhhPersonal)
     {
         //
     }
@@ -75,10 +75,10 @@ class RrhhPersonalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rrhh_personal  $rrhh_personal
+     * @param  \App\Models\RrhhPersonal  $rrhhPersonal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rrhh_personal $rrhh_personal)
+    public function destroy(RrhhPersonal $rrhhPersonal)
     {
         //
     }

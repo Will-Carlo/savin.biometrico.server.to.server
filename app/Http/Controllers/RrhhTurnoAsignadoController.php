@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rrhh_turno_asignado;
+use App\Models\RrhhTurnoAsignado;
 use Illuminate\Http\Request;
 
 class RrhhTurnoAsignadoController extends Controller
@@ -41,10 +41,10 @@ class RrhhTurnoAsignadoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rrhh_turno_asignado  $rrhh_turno_asignado
+     * @param  \App\Models\RrhhTurnoAsignado  $rrhhTurnoAsignado
      * @return \Illuminate\Http\Response
      */
-    public function show(Rrhh_turno_asignado $rrhh_turno_asignado)
+    public function show(RrhhTurnoAsignado $rrhhTurnoAsignado)
     {
         //
     }
@@ -52,10 +52,10 @@ class RrhhTurnoAsignadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rrhh_turno_asignado  $rrhh_turno_asignado
+     * @param  \App\Models\RrhhTurnoAsignado  $rrhhTurnoAsignado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rrhh_turno_asignado $rrhh_turno_asignado)
+    public function edit(RrhhTurnoAsignado $rrhhTurnoAsignado)
     {
         //
     }
@@ -64,10 +64,10 @@ class RrhhTurnoAsignadoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rrhh_turno_asignado  $rrhh_turno_asignado
+     * @param  \App\Models\RrhhTurnoAsignado  $rrhhTurnoAsignado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rrhh_turno_asignado $rrhh_turno_asignado)
+    public function update(Request $request, RrhhTurnoAsignado $rrhhTurnoAsignado)
     {
         //
     }
@@ -75,10 +75,10 @@ class RrhhTurnoAsignadoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rrhh_turno_asignado  $rrhh_turno_asignado
+     * @param  \App\Models\RrhhTurnoAsignado  $rrhhTurnoAsignado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rrhh_turno_asignado $rrhh_turno_asignado)
+    public function destroy(RrhhTurnoAsignado $rrhhTurnoAsignado)
     {
         //
     }

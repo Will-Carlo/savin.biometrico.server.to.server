@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rrhh_asistencia;
+use App\Models\RrhhAsistencia;
 use Illuminate\Http\Request;
 
 class RrhhAsistenciaController extends Controller
@@ -41,10 +41,10 @@ class RrhhAsistenciaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rrhh_asistencia  $rrhh_asistencia
+     * @param  \App\Models\RrhhAsistencia  $rrhhAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function show(Rrhh_asistencia $rrhh_asistencia)
+    public function show(RrhhAsistencia $rrhhAsistencia)
     {
         //
     }
@@ -52,10 +52,10 @@ class RrhhAsistenciaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rrhh_asistencia  $rrhh_asistencia
+     * @param  \App\Models\RrhhAsistencia  $rrhhAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rrhh_asistencia $rrhh_asistencia)
+    public function edit(RrhhAsistencia $rrhhAsistencia)
     {
         //
     }
@@ -64,10 +64,10 @@ class RrhhAsistenciaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rrhh_asistencia  $rrhh_asistencia
+     * @param  \App\Models\RrhhAsistencia  $rrhhAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rrhh_asistencia $rrhh_asistencia)
+    public function update(Request $request, RrhhAsistencia $rrhhAsistencia)
     {
         //
     }
@@ -75,10 +75,10 @@ class RrhhAsistenciaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rrhh_asistencia  $rrhh_asistencia
+     * @param  \App\Models\RrhhAsistencia  $rrhhAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rrhh_asistencia $rrhh_asistencia)
+    public function destroy(RrhhAsistencia $rrhhAsistencia)
     {
         //
     }

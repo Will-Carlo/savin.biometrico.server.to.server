@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rrhh_punto_asistencia extends Model
+class RrhhTurno extends Model
 {
     use HasFactory;
+    protected $table = 'rrhh_turno';
 }

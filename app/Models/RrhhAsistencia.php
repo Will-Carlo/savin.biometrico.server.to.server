@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rrhh_asistencia extends Model
+class RrhhAsistencia extends Model
 {
     use HasFactory;
-    
     protected $table = 'rrhh_asistencia';
 
     public function turno()

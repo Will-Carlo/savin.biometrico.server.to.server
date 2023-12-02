@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rrhh_turno;
+use App\Models\RrhhTurno;
 use Illuminate\Http\Request;
 
 class RrhhTurnoController extends Controller
@@ -41,10 +41,10 @@ class RrhhTurnoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rrhh_turno  $rrhh_turno
+     * @param  \App\Models\RrhhTurno  $rrhhTurno
      * @return \Illuminate\Http\Response
      */
-    public function show(Rrhh_turno $rrhh_turno)
+    public function show(RrhhTurno $rrhhTurno)
     {
         //
     }
@@ -52,10 +52,10 @@ class RrhhTurnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rrhh_turno  $rrhh_turno
+     * @param  \App\Models\RrhhTurno  $rrhhTurno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rrhh_turno $rrhh_turno)
+    public function edit(RrhhTurno $rrhhTurno)
     {
         //
     }
@@ -64,10 +64,10 @@ class RrhhTurnoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rrhh_turno  $rrhh_turno
+     * @param  \App\Models\RrhhTurno  $rrhhTurno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rrhh_turno $rrhh_turno)
+    public function update(Request $request, RrhhTurno $rrhhTurno)
     {
         //
     }
@@ -75,10 +75,10 @@ class RrhhTurnoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rrhh_turno  $rrhh_turno
+     * @param  \App\Models\RrhhTurno  $rrhhTurno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rrhh_turno $rrhh_turno)
+    public function destroy(RrhhTurno $rrhhTurno)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inv_sucursal;
+use App\Models\InvSucursal;
 use Illuminate\Http\Request;
 
 class InvSucursalController extends Controller
@@ -41,10 +41,10 @@ class InvSucursalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Inv_sucursal  $inv_sucursal
+     * @param  \App\Models\InvSucursal  $invSucursal
      * @return \Illuminate\Http\Response
      */
-    public function show(Inv_sucursal $inv_sucursal)
+    public function show(InvSucursal $invSucursal)
     {
         //
     }
@@ -52,10 +52,10 @@ class InvSucursalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Inv_sucursal  $inv_sucursal
+     * @param  \App\Models\InvSucursal  $invSucursal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inv_sucursal $inv_sucursal)
+    public function edit(InvSucursal $invSucursal)
     {
         //
     }
@@ -64,10 +64,10 @@ class InvSucursalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Inv_sucursal  $inv_sucursal
+     * @param  \App\Models\InvSucursal  $invSucursal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inv_sucursal $inv_sucursal)
+    public function update(Request $request, InvSucursal $invSucursal)
     {
         //
     }
@@ -75,10 +75,10 @@ class InvSucursalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Inv_sucursal  $inv_sucursal
+     * @param  \App\Models\InvSucursal  $invSucursal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inv_sucursal $inv_sucursal)
+    public function destroy(InvSucursal $invSucursal)
     {
         //
     }

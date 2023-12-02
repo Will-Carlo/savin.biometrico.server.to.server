@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rrhh_punto_asistencia;
+use App\Models\RrhhPuntoAsistencia;
 use Illuminate\Http\Request;
 
 class RrhhPuntoAsistenciaController extends Controller
@@ -41,10 +41,10 @@ class RrhhPuntoAsistenciaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rrhh_punto_asistencia  $rrhh_punto_asistencia
+     * @param  \App\Models\RrhhPuntoAsistencia  $rrhhPuntoAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function show(Rrhh_punto_asistencia $rrhh_punto_asistencia)
+    public function show(RrhhPuntoAsistencia $rrhhPuntoAsistencia)
     {
         //
     }
@@ -52,10 +52,10 @@ class RrhhPuntoAsistenciaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rrhh_punto_asistencia  $rrhh_punto_asistencia
+     * @param  \App\Models\RrhhPuntoAsistencia  $rrhhPuntoAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rrhh_punto_asistencia $rrhh_punto_asistencia)
+    public function edit(RrhhPuntoAsistencia $rrhhPuntoAsistencia)
     {
         //
     }
@@ -64,10 +64,10 @@ class RrhhPuntoAsistenciaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rrhh_punto_asistencia  $rrhh_punto_asistencia
+     * @param  \App\Models\RrhhPuntoAsistencia  $rrhhPuntoAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rrhh_punto_asistencia $rrhh_punto_asistencia)
+    public function update(Request $request, RrhhPuntoAsistencia $rrhhPuntoAsistencia)
     {
         //
     }
@@ -75,10 +75,10 @@ class RrhhPuntoAsistenciaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rrhh_punto_asistencia  $rrhh_punto_asistencia
+     * @param  \App\Models\RrhhPuntoAsistencia  $rrhhPuntoAsistencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rrhh_punto_asistencia $rrhh_punto_asistencia)
+    public function destroy(RrhhPuntoAsistencia $rrhhPuntoAsistencia)
     {
         //
     }

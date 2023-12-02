@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inv_almacen;
+use App\Models\InvAlmacen;
 use Illuminate\Http\Request;
 
 class InvAlmacenController extends Controller
@@ -41,10 +41,10 @@ class InvAlmacenController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Inv_almacen  $inv_almacen
+     * @param  \App\Models\InvAlmacen  $invAlmacen
      * @return \Illuminate\Http\Response
      */
-    public function show(Inv_almacen $inv_almacen)
+    public function show(InvAlmacen $invAlmacen)
     {
         //
     }
@@ -52,10 +52,10 @@ class InvAlmacenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Inv_almacen  $inv_almacen
+     * @param  \App\Models\InvAlmacen  $invAlmacen
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inv_almacen $inv_almacen)
+    public function edit(InvAlmacen $invAlmacen)
     {
         //
     }
@@ -64,10 +64,10 @@ class InvAlmacenController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Inv_almacen  $inv_almacen
+     * @param  \App\Models\InvAlmacen  $invAlmacen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inv_almacen $inv_almacen)
+    public function update(Request $request, InvAlmacen $invAlmacen)
     {
         //
     }
@@ -75,10 +75,10 @@ class InvAlmacenController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Inv_almacen  $inv_almacen
+     * @param  \App\Models\InvAlmacen  $invAlmacen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inv_almacen $inv_almacen)
+    public function destroy(InvAlmacen $invAlmacen)
     {
         //
     }
