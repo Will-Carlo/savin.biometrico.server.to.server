@@ -13,6 +13,12 @@
     .bootstrap-remove-all {
         all: unset !important;
       }
+    #dateSavin,
+    #timeSavin {
+        font-size: 3em; /* Tamaño de letra más grande */
+        text-align: center; /* Centrar el texto */
+        margin-top: 0%; /* Margen superior para centrar verticalmente */
+    }
   </style>
 </head>
 <body>
@@ -27,19 +33,43 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.36/moment-timezone-with-data.min.js"></script>
 
 <script>
-    function mostrarFechaHoraBolivia() {
+    function showDate() {
         // Obtener la hora actual en la zona horaria de Bolivia
-        let horaBolivia = moment().tz('America/La_Paz').format('DD-MM-YYYY HH:mm:ss');
+        let horaBolivia = moment().tz('America/La_Paz').format('DD/MM/YYYY');
 
         // Mostrar la hora y fecha de Bolivia en el elemento con ID 'fechaHora'
-        document.getElementById('timeSavin').innerHTML = horaBolivia;
+        document.getElementById('dateSavin').innerHTML = horaBolivia;
     }
 
     // Actualizar la hora y fecha cada segundo
-    setInterval(mostrarFechaHoraBolivia, 1000);
+    // setInterval(showDate, 1000);
 
+    
+    function showTime() {
+      // Obtener la hora actual en la zona horaria de Bolivia
+      let horaBolivia = moment().tz('America/La_Paz').format('HH:mm:ss');
+      
+      // Mostrar la hora y fecha de Bolivia en el elemento con ID 'fechaHora'
+      document.getElementById('timeSavin').innerHTML = horaBolivia;
+    }
+    
+
+    // function sendDate() {
+    //   // Obtener la hora actual en la zona horaria de Bolivia
+    //   let horaBolivia = moment().tz('America/La_Paz').format('DD/MM/YYYY HH:mm:ss');
+      
+    //   // Mostrar la hora y fecha de Bolivia en el elemento con ID 'fechaHora'
+    //   document.getElementById('sendDate').innerHTML = horaBolivia;
+    // }
+    
+    // Actualizar la hora y fecha cada segundo
+    setInterval(showTime, 1000);
+    
     // Mostrar la hora y fecha al cargar la página
-    mostrarFechaHoraBolivia();
+    showDate();
+    // Mostrar la hora y fecha al cargar la página
+    showTime();
+    // sendDate();
 </script>
 
 

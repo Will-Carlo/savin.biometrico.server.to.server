@@ -19,13 +19,13 @@ return new class extends Migration
             $table->string('direccion', 255);
             $table->string('responsable', 255);
             $table->string('direccion_mac', 45);
-            $table->integer('id_sucursal');
-            $table->integer('id_almacen');
+            $table->unsignedBigInteger('id_sucursal');
+            $table->unsignedBigInteger('id_almacen');
             $table->timestamps();
 
             // Claves foráneas
-            // $table->foreign('id_sucursal')->references('id')->on('inv_sucursal');
-            // $table->foreign('id_almacen')->references('id')->on('inv_almacen');
+           //  $table->foreign('id_sucursal')->references('id')->on('inv_sucursal');
+           //  $table->foreign('id_almacen')->references('id')->on('inv_almacen');
         });
     }
 

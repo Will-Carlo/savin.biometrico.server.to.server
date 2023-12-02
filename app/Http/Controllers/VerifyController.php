@@ -5,20 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
+use Carbon\Carbon; 
 
 class VerifyController extends Controller
 {
     public function index(){
         $usersData = User::select('id','finger')->get();
-        $jsonUsersData = $usersData->toJson();
-        // dd($jsonUsersData);
+        // $timeSavin = Carbon::now()->toDateTimeString();
         
+        
+        $dateSavin = Carbon::now(); // Obtiene la fecha y hora actual
+        $timeSavin = $dateSavin->format('H:i:s'); // Obtiene solo la hora en formato HH:MM:SS
+        $dataSend = [
+            'usersData' => $usersData,
+            'timeSavin' => $timeSavin
+        ];
+        
+         //dd($dataSend);
+         $jsonUsersData = json_encode($dataSend);
+       // $jsonUsersData = $usersData->toJson();
+        // dd($jsonUsersData);
         
         //$this->sendVerifyJson($jsonUsersData);
         //  function sendVerifyJson
 
         $response = Http::post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
-        
+        // dd(json_decode($response));
         
         if ($response->successful()) {
             // dd(json_decode($response));
@@ -28,10 +40,14 @@ class VerifyController extends Controller
             $data = json_decode($response, true);
             // $userID = json_decode($data['idClient'], true);
             // $userData = json_decode($data['userData'], true);
-            
+           //  $timeSavin = $data['timeSavin'];
             
             
             $employee = User::find($data['idClient']);
+
+            $employee->horaIngreso = $data['timeSavin'];
+            $employee->save();
+
             // dd($employee ->name);
             // return redirect()->route('verify')->with("employee", $employee);
             return view('verify')->with('employee', $employee);

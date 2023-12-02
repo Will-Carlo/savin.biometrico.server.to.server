@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\User;
+use Carbon\Carbon; 
 
 class RegisterController extends Controller
 {
     public function index(Request $request){
 
+        $dateSavin = Carbon::now(); // Obtiene la fecha y hora actual
+        $timeSavin = $dateSavin->format('H:i:s'); // Obtiene solo la hora en formato HH:MM:SS
+
         $userData = [
             'name' => $request->input('name'),
             'ci' => $request->input('ci'),
             'turno' => $request->input('turno'),
+            'horaIngreso' => $timeSavin,
         ];
 
         $userDataJSON = json_encode($userData);
@@ -53,6 +58,7 @@ class RegisterController extends Controller
         $newUser->ci = $userData['ci'];
         $newUser->turno = $userData['turno'];
         $newUser->finger = $userFinger['FingerData'];
+        $newUser->horaIngreso = $userData['horaIngreso'];
         $newUser->save();
     }
 }

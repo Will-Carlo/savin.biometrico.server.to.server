@@ -35,9 +35,10 @@ Route::post('/register', [RegisterController::class, 'index'  ])->name('register
 
 
 // ROUTES verify
-
-Route::post('/verify', [VerifyController::class, 'index'  ])->name('verify.send');
-Route::get('/verify', [VerifyController::class, 'show'  ])->name('verify');
+Route::controller(VerifyController::class)->group(function(){  
+    Route::post('/verify',  'index')->name('verify.send');
+    Route::get('/verify',   'show')->name('verify');
+});
 // Route::post('/verify', [VerifyController::class, 'lastEmployee'])->name('verify.last');
 
 // rutas adm

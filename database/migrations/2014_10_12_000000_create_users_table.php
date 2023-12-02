@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('ci');
             $table->string('turno');
             $table->binary('finger');
+            $table->time('horaIngreso');
+            
 
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();

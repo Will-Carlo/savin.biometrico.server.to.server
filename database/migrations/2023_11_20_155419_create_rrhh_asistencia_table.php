@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('rrhh_asistencia', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_turno');
-            $table->integer('id_personal');
+            $table->unsignedBigInteger('id_turno');
+            $table->unsignedBigInteger('id_personal');
             $table->time('hora_marcado');
             $table->integer('minutos_atraso');
             $table->integer('ind_tipo_movimiento');
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->timestamps();
 
             // Claves foráneas
-            // $table->foreign('id_turno')->references('id')->on('rrhh_turno'); // Reemplaza 'nombre_tabla_turno' por el nombre correcto de la tabla 'turno'
-            // $table->foreign('id_personal')->references('id')->on('rrhh_personal'); // Reemplaza 'nombre_tabla_personal' por el nombre correcto de la tabla 'personal'
+            // $table->foreign('id_turno')->references('id')->on('rrhh_turno');
+            // $table->foreign('id_personal')->references('id')->on('rrhh_personal');
         });
     }
 

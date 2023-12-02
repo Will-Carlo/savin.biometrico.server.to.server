@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('rrhh_turno_asignado', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_turno');
-            $table->integer('id_personal');
+            $table->unsignedBigInteger('id_turno');
+            $table->unsignedBigInteger('id_personal');
             $table->integer('ind_tipo_marcado');
             $table->integer('ind_marcado_fijo_variable');
-            $table->integer('id_punto_asistencia')->nullable();
+            $table->unsignedBigInteger('id_punto_asistencia')->nullable();
             $table->timestamps();
 
             // Claves foráneas
