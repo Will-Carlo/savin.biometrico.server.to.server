@@ -25,23 +25,30 @@
           <h1 class="mx-auto">Sistema de Asistencia: no login</h1> 
       @endauth
       </div>
+      
 
 
 
 
 
+<form action="{{ route('verify.send')}}" method="POST">
+    @csrf
+    <div class="form-group d-flex align-items-center">
+        
+      <button type="submit" class="btn border-0"><img src="{{ asset('gifs/finger.gif') }}" alt="Click para escanear" width="140" height="140"></button>
 
-
-
-
-
-    <div class="">
-        <a href="{{route('delay')}}" class="btn btn-sm btn-primary">Ver Atrasos</a>
-        <a href="{{route('register')}}" class="btn btn-sm btn-primary">Registrar nuevo personal</a>
-        <a href="{{route('adm')}}" class="btn btn-sm btn-primary">Reportes</a>
-
-        <a href="{{route('verify')}}" class="btn btn-danger btn-sm float-rigth">Volver</a>
     </div>
+</form>
+
+              @isset($employee)
+                <p class="px-5">Personal: {{ $employee -> name }}</p>
+                <p class="px-5">Atrasos: {{ $employee -> horaIngreso }}</p>
+              @else
+                <p class="px-5">Personal: </p>
+                <p class="px-5">Atrasos: </p>
+              @endisset
+
+        <a href="{{route('verify')}}" class="btn btn-danger btn-sm float-rigth">Salir</a>
 
       </div>
 

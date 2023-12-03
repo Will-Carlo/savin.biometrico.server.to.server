@@ -53,7 +53,7 @@
 
 
     <div class="">
-        <a href="#" class="">opciones</a>
+        <a href="{{route('options')}}" class="">opciones</a>
     </div>
 
 
