@@ -10,7 +10,8 @@
                         Registro Personal
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('register.schedule')}}" method="GET">
+                        <form action="{{ route('register.send')}}" method="POST">
+                        <!-- <form action="{{ route('register.schedule')}}" method="GET"> -->
                             @csrf
                             <div class="form-group">                               
                                 <label for="">Paterno</label>
@@ -37,9 +38,9 @@
                                 <label for="">Área</label>
                                 <select name="id_area" id="id_area" class="form-control">
                                    <!-- Añadir foreach para las áreas -->
-                                    <option value="">Sistemas</option>
-                                    <option value="">Caja</option>
-                                    <option value="">Reporte</option>
+                                    <option value="1">Sistemas</option>
+                                    <option value="2">Caja</option>
+                                    <option value="3">Reporte</option>
                                 </select>
                             </div>
 
@@ -52,8 +53,8 @@
                                 <label for="">Género</label>
                                 <select name="ind_genero" id="ind_genero" class="form-control">
                                    <!-- Añadir foreach para las áreas -->
-                                    <option value="">Masculino</option>
-                                    <option value="">Femenino</option>
+                                    <option value="13">Masculino</option>
+                                    <option value="14">Femenino</option>
                                 </select>
                             </div>
 
@@ -79,12 +80,12 @@
                                 <label for="">Ciudad</label>
                                 <select name="id_ciudad" id="id_ciudad" class="form-control">
                                    <!-- Añadir foreach para las áreas -->
-                                    <option value="">La Paz</option>
-                                    <option value="">Cochababa</option>
-                                    <option value="">Sta. Cruz</option>
-                                    <option value="">Tarija</option>
-                                    <option value="">Pando</option>
-                                    <option value="">Beni</option>
+                                    <option value="1">La Paz</option>
+                                    <option value="2">Cochababa</option>
+                                    <option value="3">Sta. Cruz</option>
+                                    <option value="4">Tarija</option>
+                                    <option value="5">Pando</option>
+                                    <option value="6">Beni</option>
                                 </select>
                             </div>
 

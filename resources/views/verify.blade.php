@@ -19,11 +19,11 @@
       <div class="card">
       
       <div class="card-header text-center">
-      @auth
-          <h1 class="mx-auto">Sistema de Asistencia: {{ $nameStore }}</h1>
+      @isset($dataMac)
+          <h1 class="mx-auto">Sistema de Asistencia: {{ $dataMac }}</h1>
       @else
           <h1 class="mx-auto">Sistema de Asistencia: no login</h1> 
-      @endauth
+      @endisset
       </div>
       
       
@@ -59,9 +59,9 @@
 
 <br><br><br>
           <h6><strong>Último Marcado</strong></h6>
-              @isset($employee)
-                <p class="px-5">Personal: {{ $employee -> name }}</p>
-                <p class="px-5">Hora: {{ $employee -> horaIngreso }}</p>
+              @isset($employeeData)
+                <p class="px-5">Personal: {{ $employeeData['fullName'] }}</p>
+                <p class="px-5">Hora: {{ $employeeData['time'] }}</p>
               @else
                 <p class="px-5">Personal: </p>
                 <p class="px-5">Hora: </p>

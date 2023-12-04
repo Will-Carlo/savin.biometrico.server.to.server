@@ -3,14 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\RrhhPersonal;
+use App\Models\RrhhAsistencia;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon; 
+use Illuminate\Support\Facades\DB;
+
 
 class VerifyController extends Controller
 {
     public function index(){
-        $usersData = User::select('id','finger')->get();
+        // $usersData = RrhhPersonal::select('id','finger')->get();
+
+        // $usersData = RrhhPersonal::whereNotNull('finger')
+        //     ->where('finger', '<>', '') // La columna no está vacía
+        //     ->select('id', 'finger')
+        //     ->get();
+
+
+        $usersData = RrhhPersonal::whereNotNull('finger')
+                                    ->where('finger', '<>', 'null') // No sea nula
+                                    ->where('finger', '<>', '')    // No esté vacía
+                                    ->select('id', 'finger')
+                                    ->get();
+
         // $timeSavin = Carbon::now()->toDateTimeString();
         
         
@@ -38,19 +54,49 @@ class VerifyController extends Controller
             // function showEmployee
             // return $this->showEmployee($response->body());
             $data = json_decode($response, true);
-            // $userID = json_decode($data['idClient'], true);
             // $userData = json_decode($data['userData'], true);
-           //  $timeSavin = $data['timeSavin'];
+
+            $userID = $data['idClient'];
+            // $timeSavin = $data['timeSavin'];
+            $hora_marcada = Carbon::createFromFormat('H:i:s', $data['timeSavin']);
+
+            // dd($userID);
+
             
             
-            $employee = User::find($data['idClient']);
+            
+            
+            $RrhhAsistencia = new RrhhAsistencia;
+            $RrhhAsistencia->id_turno = 1;
+            $RrhhAsistencia->id_personal = $userID;
+            $RrhhAsistencia->hora_marcado = $hora_marcada; 
+            $RrhhAsistencia->minutos_atraso = $this->minutos_atraso($timeSavin); 
+            $RrhhAsistencia->ind_tipo_movimiento = 1; 
+            $RrhhAsistencia->save();
+            
+            $employee = RrhhPersonal::find($userID);
+            
+            // $employee = RrhhAsistencia::where('id_personal', $userID)->first();
 
-            $employee->horaIngreso = $data['timeSavin'];
-            $employee->save();
+            // dd($employee->personal->paterno);
 
-            // dd($employee ->name);
+            $paterno = $employee->paterno;
+            $materno = $employee->materno;
+            $nombres = $employee->nombres;
+            // $fecha_marcada = $employee->hora_marcado;
+            // $horaMarcada = Carbon::createFromFormat('Y-m-d H:i:s', $fecha_marcada)->format('H:i:s');
+
+
+            $employeeData = [
+                'fullName' => $paterno .' '. $materno .' '. $nombres,
+                // 'time' => $horaMarcada
+                'time' => $hora_marcada->format('H:i:s')
+
+            ];
+
+            // dd($employeeData['time']);
             // return redirect()->route('verify')->with("employee", $employee);
-            return view('verify')->with('employee', $employee);
+            return view('verify')->with('employeeData', $employeeData);
             
 
         } else {
@@ -64,7 +110,23 @@ class VerifyController extends Controller
         
     }
     
-    
+    function minutos_atraso($data)
+    {
+        // dd($data);
+        // Hora de referencia '09:30:00'
+        $horaReferencia = Carbon::createFromFormat('H:i:s', '09:30:00');
+
+        // Convertir el tiempo de $data['timeSavin'] a formato Carbon
+        $tiempoActual = Carbon::createFromFormat('H:i:s', $data);
+
+        // Calcular los minutos excedentes si el tiempo actual es mayor que '09:30:00'
+        if ($tiempoActual->greaterThan($horaReferencia)) {
+            $minutosExcedentes = $tiempoActual->diffInMinutes($horaReferencia);
+            return $minutosExcedentes;
+        }
+
+        return 0; // Si no hay excedentes, devuelve cero
+    } 
     public function sendVerifyJson($userDataJSON) {
         
         
@@ -85,7 +147,7 @@ class VerifyController extends Controller
         $data = json_decode($dataJson, true);
         // $userID = json_decode($data['idClient'], true);
         // $userData = json_decode($data['userData'], true);
-        $employee = User::find($data['idClient']);
+        $employee = RrhhPersonal::find($data['idClient']);
         return redirect()->route('verify');
         
         // dd($employee->finger);
@@ -95,7 +157,48 @@ class VerifyController extends Controller
 
 
     function show() {
-        return view('verify');
+
+        $response = Http::post('http://localhost:8089/macdir');
+        
+        
+        if ($response->successful()) {
+            // dd(json_decode($response));
+            $data = json_decode($response, true);
+                
+            // dd($data['macA']);
+            
+            $nombre = DB::table('rrhh_punto_asistencia')
+            ->where('direccion_mac', $data['macA'])
+            ->value('nombre');
+            
+            // dd($nombre);
+
+            return view('verify')->with('dataMac', $nombre);
+        } else {
+            $statusCode = $response->status();
+            echo "La solicitud no fue exitosa. Código de estado: $statusCode";
+        }
+
+
+        // $dataMac = $this->verifyMacAddress();
+    }
+
+    public function verifyMacAddress() {
+        
+        
+        $response = Http::post('http://localhost:8089/macdir');
+        
+        
+        if ($response->successful()) {
+            // dd(json_decode($response));
+            $data = json_decode($response, true);
+                
+            return $data['macA'];
+        } else {
+            $statusCode = $response->status();
+            echo "La solicitud no fue exitosa. Código de estado: $statusCode";
+        }
+        
     }
 
 

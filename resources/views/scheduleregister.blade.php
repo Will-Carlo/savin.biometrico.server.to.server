@@ -1,7 +1,7 @@
 @extends('template.template')
 @section('content')
 
-    <!-- {{ $data['nombres'] }} -->
+    {{ $data['nombres'] }}
 
     <div class="container d-flex justify-content-center align-items-center">
         <div class="row">

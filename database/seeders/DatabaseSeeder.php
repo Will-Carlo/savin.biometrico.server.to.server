@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
             'nombre'=>'ZAPATA',
             'direccion'=>'Calle Zapata No. 141 Piso PB Depto Local 2 Zona/Barrio San Jorge',
             'responsable'=>'Jhoni Velarde',
-            'direccion_mac'=>'00-E0-4C-36-17-66',
+            'direccion_mac'=>'00-E0-4C-36-17-C0',
             'id_sucursal'=>'1',
             'id_almacen'=>'1'          
         ]);
@@ -119,10 +119,10 @@ class DatabaseSeeder extends Seeder
             [1, 'MOSCOSO', '', 'ERNESTO', '3352721', 'EM', 3, '1974-02-26', 13, 'serugirano60@hotmail.com', '12345670', 'Z. KUPINI', NULL, 1, ''],
             [2, 'CONDORI', 'VARGAS', 'LOURDES ', '4975520', 'LCV', 3, '1980-09-29', 14, 'jcsm00@hotmail.com', '12345670', 'Z. 16 DE JULIO', NULL, 1, ''],
             [3, 'CHINO', 'PILLCO', 'GUILLERMO', '6101028', 'MBPS', 3, '1983-03-26', 13, 'jcsm00@hotmail.com', '12345670', 'Z. VILLA COPACABANA', NULL, 1, ''],
-            [4, 'PERALTA', 'Z', 'MAXIMO', '3441712', 'MP', 1, '1976-05-27', 14, 'jcsm00@hotmail.com', '12345670', 'Z. VILLA LA MERCED ', NULL, 1, 'null'],
+            [4, 'PERALTA', 'Z', 'MAXIMO', '3441712', 'MP', 1, '1976-05-27', 14, 'jcsm00@hotmail.com', '12345670', 'Z. VILLA LA MERCED ', NULL, 1, ''],
             [6, 'VILLENA', 'BLANCO', 'ALDO YASMANI PEDRO', '14427565', 'AYPVB', 3, '1999-05-06', 13, 'jcsm00@hotmail.com', '12345670', 'Z. CALIRI', NULL, 1, ''],
             [7, 'OROZCO', 'CERDA', 'DAMIAN RENE', '2603153', 'DROC', 2, '1969-10-17', 13, 'jcsm00@hotmail.com', '12345670', 'Z. PAMPAHASI', NULL, 1, ''],
-            [8, 'SANCHEZ', '', 'CARMIÑA', '', '', 3, NULL, NULL, 'jcsm00@hotmail.com', '12345670', '5169 NW 74 AVE', NULL, 1, 'null'],
+            [8, 'SANCHEZ', '', 'CARMIÑA', '', '', 3, NULL, NULL, 'jcsm00@hotmail.com', '12345670', '5169 NW 74 AVE', NULL, 1, ''],
             [9, 'CONDE ', 'SARCO', 'EUFRAIN SAMUEL', '4836922', 'ESCS', 9, '1979-03-28', 13, 'jcsm00@hotmail.com', '12345670', 'Z. 16 DE JULIO', NULL, 1, ''],
             [10, 'LIMA', 'FLORES', 'JUVENAL FLAVIA', '7056573', 'JFLF', 7, '1989-01-29', 14, 'jcsm00@hotmail.com', '12345670', 'Z. ZENKATA', NULL, 1, ''],
         ];
