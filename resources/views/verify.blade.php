@@ -1,7 +1,8 @@
 @extends('template.template')
+
 @section('content')
 
-  <div class="card">
+<div class="card">
     <div class="card-body">
       @if(session('shipping-report'))
       <div class="alert alert-success">
@@ -10,8 +11,10 @@
       @endif
     </div>
   </div>
-    
   
+
+        
+
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="row">
       
@@ -19,13 +22,13 @@
       <div class="card">
       
       <div class="card-header text-center">
-      @isset($dataMac)
-          <h1 class="mx-auto">Sistema de Asistencia: {{ $dataMac }}</h1>
+      @if(session('storeName')!==null)
+          <h1 class="mx-auto">Sistema de Asistencia: {{ session('storeName') }}</h1>
       @else
           <h1 class="mx-auto">Sistema de Asistencia: no login</h1> 
-      @endisset
+      @endif
       </div>
-      
+
       
       <div class="row">
         <div id="dateSavin" class="text-lg"></div>

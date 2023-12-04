@@ -170,10 +170,14 @@ class VerifyController extends Controller
             $nombre = DB::table('rrhh_punto_asistencia')
             ->where('direccion_mac', $data['macA'])
             ->value('nombre');
-            
-            // dd($nombre);
 
-            return view('verify')->with('dataMac', $nombre);
+            session(['storeName'=>$nombre]);
+            
+            // session()->forget('storeName');
+            // dd(session()->all());
+
+            return view('verify');
+            // ->with('dataMac', session()->all());
         } else {
             $statusCode = $response->status();
             echo "La solicitud no fue exitosa. Código de estado: $statusCode";
