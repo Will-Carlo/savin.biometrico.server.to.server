@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\DB;
 class DelayController extends Controller
 {
     public function index(){
-        $usersData = RrhhPersonal::select('id','finger')->get();
-        
+        $usersData = RrhhPersonal::whereNotNull('finger')
+                    ->where('finger', '<>', 'null') // No sea nula
+                    ->where('finger', '<>', '')    // No esté vacía
+                    ->select('id', 'finger')
+                    ->get();
         $dateSavin = Carbon::now(); // Obtiene la fecha y hora actual
         $timeSavin = $dateSavin->format('H:i:s'); // Obtiene solo la hora en formato HH:MM:SS
         $dataSend = [
@@ -32,7 +35,7 @@ class DelayController extends Controller
             $data = json_decode($response, true);
             $mesActual = Carbon::now()->month;
             $suma = DB::table('rrhh_asistencia')
-                        ->where('id_turno', $data['idClient']) // ID específico que estás buscando
+                        ->where('id_personal', $data['idClient']) // ID específico que estás buscando
                         ->whereMonth('hora_marcado', $mesActual) // Filtrar por el mes actual
                         ->sum('minutos_atraso');
             $employee = RrhhPersonal::find($data['idClient']);
@@ -40,11 +43,11 @@ class DelayController extends Controller
 
 
             $dataSend = [
+                'employee' => $name,
                 'delayTotal' => $suma,
-                'employee' => $name
             ];
 
-            dd($dataSend);
+            // dd($dataSend);
             return view('delay')->with('dataSend', $dataSend);
             
 

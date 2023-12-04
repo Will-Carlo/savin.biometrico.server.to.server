@@ -40,9 +40,9 @@
     </div>
 </form>
 
-              @isset($employee)
-                <p class="px-5">Personal: {{ $dataSend -> name }}</p>
-                <p class="px-5">Atrasos: {{ $dataSend -> delayTotal }}</p>
+              @isset($dataSend)
+                <p class="px-5">Personal: {{ $dataSend['employee'] }}</p>
+                <p class="px-5">Atrasos: {{ $dataSend['delayTotal'] }}</p>
               @else
                 <p class="px-5">Personal: </p>
                 <p class="px-5">Atrasos: </p>
