@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_turno');
             $table->unsignedBigInteger('id_personal');
-            $table->time('hora_marcado');
+            $table->dateTime('hora_marcado');
             $table->integer('minutos_atraso');
             $table->integer('ind_tipo_movimiento');
            // $table->binary('captura_imagen')->nullable(); // Campo BLOB

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VerifyController;
+use App\Http\Controllers\DelayController;
 use App\Models\User;
 
 
@@ -25,7 +26,7 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/verify');
 });
 
 
@@ -33,13 +34,13 @@ Route::get('/options', function () {
     return view('options');
 })->name('options');
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
 
 // Métodos POST
-
-Route::post('/register', [RegisterController::class, 'index'  ])->name('register.send');
+Route::controller(RegisterController::class)->group(function(){  
+    Route::post('/register',        'index')->name('register.send');
+    Route::get('/scheduleregister', 'scheduleRegister')->name('register.schedule');
+    Route::get('/register',         'show')->name('register');
+});
 
 
 // ROUTES verify
@@ -49,6 +50,14 @@ Route::controller(VerifyController::class)->group(function(){
 });
 // Route::post('/verify', [VerifyController::class, 'lastEmployee'])->name('verify.last');
 
+
+// REOUTES delay
+Route::controller(DelayController::class)->group(function(){  
+    Route::post('/delay',  'index')->name('delay.send');
+    Route::get('/delay',   'show')->name('delay');
+});
+
+
 // rutas adm
 
 Route::get('/adm', function () {
@@ -56,7 +65,6 @@ Route::get('/adm', function () {
     return $users;
     // return view('adm.index', compact('users'));
 })->name('adm');
-
 
 
 

@@ -31,7 +31,7 @@
 
 
 
-<form action="{{ route('verify.send')}}" method="POST">
+<form action="{{ route('delay.send')}}" method="POST">
     @csrf
     <div class="form-group d-flex align-items-center">
         
@@ -41,8 +41,8 @@
 </form>
 
               @isset($employee)
-                <p class="px-5">Personal: {{ $employee -> name }}</p>
-                <p class="px-5">Atrasos: {{ $employee -> horaIngreso }}</p>
+                <p class="px-5">Personal: {{ $dataSend -> name }}</p>
+                <p class="px-5">Atrasos: {{ $dataSend -> delayTotal }}</p>
               @else
                 <p class="px-5">Personal: </p>
                 <p class="px-5">Atrasos: </p>

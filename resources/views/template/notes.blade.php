@@ -81,4 +81,6 @@ Route::get('/adm', function () {
 
 
 
-
+// <!-- @foreach ($areas as $area) 
+// <option value="{{ $area['id'] }}"> {{ $area['nombre'] }} </option>
+// @endforeach -->

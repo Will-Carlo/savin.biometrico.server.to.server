@@ -61,7 +61,25 @@ class RegisterController extends Controller
         $newUser->horaIngreso = $userData['horaIngreso'];
         $newUser->save();
     }
+
+
+
+    function scheduleRegister(Request $request) {
+        $data = $request->all();
+
+        //  dd($data);
+        return view('/scheduleregister')->with('data', $data);
+    }
+
+
+    function show() {
+        return view('register');
+    }
+
 }
+
+
+
 
 // Route::post('/register', function (Request $request) {
 
