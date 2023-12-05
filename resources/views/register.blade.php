@@ -10,8 +10,8 @@
                         Registro Personal
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('register.send')}}" method="POST">
-                        <!-- <form action="{{ route('register.schedule')}}" method="GET"> -->
+                        <!-- <form action="{{ route('register.send')}}" method="POST"> -->
+                        <form action="{{ route('register.schedule')}}" method="GET">
                             @csrf
                             <div class="form-group">                               
                                 <label for="">Paterno</label>

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\RrhhPersonal;
+use App\Models\RrhhTurno;
+use App\Models\RrhhTurnoAsignado;
+
+
 use Carbon\Carbon; 
 
 class RegisterController extends Controller
@@ -88,10 +92,52 @@ class RegisterController extends Controller
 
 
     function scheduleRegister(Request $request) {
-        // $data = $request->all();
+        $data = $request->all();
+        // dd($data);
 
-        //  dd($data);
-        return view('/scheduleregister')->with('data', $request);
+        if (!session('dataUserRegister')) {
+                $dataUserRegister = [
+                'paterno' => $data['paterno'],
+                'materno' => $data['materno'],
+                'nombres' => $data['nombres'],
+                'numero_documento' => $data['numero_documento'],
+                'sigla' => $data['sigla'],
+                'id_area' => $data['id_area'],
+                'fecha_nacimiento' => $data['fecha_nacimiento'],
+                'ind_genero' => $data['ind_genero'],
+                'email' => $data['email'],
+                'numero_celular' => $data['numero_celular'],
+                'direccion' => $data['direccion'],
+                'ruta_archivo' => $data['ruta_archivo'],
+                'id_ciudad' => $data['id_ciudad'],
+            ];
+            session(['dataUserRegister'=>$dataUserRegister]);            
+        } 
+        // dd(session()->all());
+
+
+
+
+
+
+        return view('/scheduleregister')->with('data', $data);
+    }
+
+    function listarTurnos(){
+        
+        $turnoCompleto = [
+            '1'=>RrhhTurno::find(1),
+            '2'=>RrhhTurno::find(2),
+            '3'=>RrhhTurno::find(3),
+        ];
+
+        
+
+        $medioTiempo1 = RrhhTurno::find(4);
+        $medioTiempo2 = RrhhTurno::find(5);
+
+        
+
     }
 
 
