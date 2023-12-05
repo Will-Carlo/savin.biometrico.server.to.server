@@ -35,12 +35,12 @@ Route::get('/options', function () {
 })->name('options');
 
 
-// Métodos POST
-Route::controller(RegisterController::class)->group(function(){  
-    Route::post('/register',        'index')->name('register.send');
-    Route::get('/scheduleregister', 'scheduleRegister')->name('register.schedule');
-    Route::get('/register',         'show')->name('register');
-});
+// // Métodos POST
+// Route::controller(RegisterController::class)->group(function(){  
+//     Route::post('/register',        'index')->name('register.send');
+//     Route::get('/scheduleregister', 'scheduleRegister')->name('register.schedule');
+//     Route::get('/register',         'show')->name('register');
+// });
 
 
 // ROUTES verify
@@ -60,11 +60,11 @@ Route::controller(DelayController::class)->group(function(){
 
 // rutas adm
 
-Route::get('/adm', function () {
-    $users = User::all();
-    return $users;
-    // return view('adm.index', compact('users'));
-})->name('adm');
+// Route::get('/adm', function () {
+//     $users = User::all();
+//     return $users;
+//     // return view('adm.index', compact('users'));
+// })->name('adm');
 
 
 

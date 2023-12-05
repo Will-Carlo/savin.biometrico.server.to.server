@@ -8,6 +8,8 @@ use App\Models\RrhhAsistencia;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon; 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Client\RequestException;
+use Illuminate\Http\Client\ConnectionException;
 
 
 class VerifyController extends Controller
@@ -45,15 +47,39 @@ class VerifyController extends Controller
         //$this->sendVerifyJson($jsonUsersData);
         //  function sendVerifyJson
 
-        $response = Http::post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
+        // $response = Http::post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
+
+        $response = Http::timeout(120)->post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
+
+        // $response = Http::retry(2, 5,function($exception, $request){
+        //     return $exception instanceof ConnectionException;
+        // })->post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
+
+
+        // try {
+    
+        //     if ($response->successful()) {
+        //       dd('exito!');  // Manejar la respuesta exitosa;
+        //     } else {
+        //         $statusCode = $response->status();
+        //         echo "La solicitud no fue exitosa. Código de estado: $statusCode";
+        //     }
+        // } catch (RequestException $exception) {
+        //     // Manejar la excepción de tiempo de espera
+        //     return view('errors.timeout-error');
+        // }
+
+
+
         // dd(json_decode($response));
+        $data = json_decode($response, true);
+            // dd($data['idClient']);
         
-        if ($response->successful()) {
+        if ($response->successful() && $data['idClient'] != 0) {
             // dd(json_decode($response));
 
             // function showEmployee
             // return $this->showEmployee($response->body());
-            $data = json_decode($response, true);
             // $userData = json_decode($data['userData'], true);
 
             $userID = $data['idClient'];
@@ -100,6 +126,9 @@ class VerifyController extends Controller
             
 
         } else {
+            
+            return view('/connection-error');
+
             $statusCode = $response->status();
             echo "La solicitud no fue exitosa. Código de estado: $statusCode";
         }
@@ -158,29 +187,37 @@ class VerifyController extends Controller
 
     function show() {
 
-        $response = Http::post('http://localhost:8089/macdir');
         
-        
-        if ($response->successful()) {
-            // dd(json_decode($response));
-            $data = json_decode($response, true);
+        try {
+            $response = Http::post('http://localhost:8089/macdir');
+
+            if ($response->successful()) {
+                // dd(json_decode($response));
+                $data = json_decode($response, true);
+                    
+                // dd($data['macA']);
                 
-            // dd($data['macA']);
+                $nombre = DB::table('rrhh_punto_asistencia')
+                ->where('direccion_mac', $data['macA'])
+                ->value('nombre');
+    
+                session(['storeName'=>$nombre]);
+                
+                // session()->forget('storeName');
+                // dd(session()->all());
+    
+                return view('verify');
+                // ->with('dataMac', session()->all());
+            } else {
+                $statusCode = $response->status();
+                echo "La solicitud no fue exitosa. Código de estado: $statusCode";
+            }
+            //code...
+        } catch (RequestException $exception) {
+            //throw $th;
             
-            $nombre = DB::table('rrhh_punto_asistencia')
-            ->where('direccion_mac', $data['macA'])
-            ->value('nombre');
-
-            session(['storeName'=>$nombre]);
-            
-            // session()->forget('storeName');
-            // dd(session()->all());
-
-            return view('verify');
-            // ->with('dataMac', session()->all());
-        } else {
-            $statusCode = $response->status();
-            echo "La solicitud no fue exitosa. Código de estado: $statusCode";
+            throw $exception;
+            return view('errors.connection-error');
         }
 
 

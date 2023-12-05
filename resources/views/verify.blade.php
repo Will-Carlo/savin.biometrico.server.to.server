@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card">
+<!-- <div class="card">
     <div class="card-body">
       @if(session('shipping-report'))
       <div class="alert alert-success">
@@ -13,7 +13,7 @@
   </div>
   
 
-        
+         -->
 
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="row">

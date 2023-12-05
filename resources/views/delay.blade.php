@@ -10,28 +10,44 @@
       
       <div class="card-header text-center">
       @if(session('storeName')!==null)
-          <h1 class="mx-auto">Sistema de Asistencia: {{ session('storeName') }}</h1>
+          <h1 class="mx-auto">Ver atrasos acumulados: {{ session('storeName') }}</h1>
       @else
-          <h1 class="mx-auto">Sistema de Asistencia: no login</h1> 
+          <h1 class="mx-auto">Ver atrasos acumulados: no login</h1> 
       @endif
       </div>
+
+      
+      <div class="row">
+        <div id="dateSavin" class="text-lg"></div>
+        <div id="timeSavin" class="text-lg"></div>
+
+
+
 
 
 <form action="{{ route('delay.send')}}" method="POST">
     @csrf
     <div class="form-group d-flex align-items-center">
         
-      <button type="submit" class="btn border-0"><img src="{{ asset('gifs/finger.gif') }}" alt="Click para escanear" width="140" height="140"></button>
+      <button type="submit" class="btn btn-light ">Leer Huella</button>
 
+        <!-- <div class="flex-grow-1">
+            <input type="text" class="form-control" name="" placeholder="">
+        </div> -->
     </div>
 </form>
 
+
+
+
+
+
               @isset($dataSend)
                 <p class="px-5">Personal: {{ $dataSend['employee'] }}</p>
-                <p class="px-5">Atrasos: {{ $dataSend['delayTotal'] }}</p>
+                <p class="px-5">Atrasos en min. Total: {{ $dataSend['delayTotal'] }}</p>
               @else
                 <p class="px-5">Personal: </p>
-                <p class="px-5">Atrasos: </p>
+                <p class="px-5">Atrasos en min. Total: </p>
               @endisset
 
         <a href="{{route('verify')}}" class="btn btn-danger btn-sm float-rigth">Salir</a>

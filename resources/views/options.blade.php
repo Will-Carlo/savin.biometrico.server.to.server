@@ -23,7 +23,7 @@
 
 
     <div class="">
-        <a href="{{route('delay')}}" class="btn btn-sm btn-primary">Ver Atrasos</a>
+        <a href="{{route('delay')}}" class="btn btn-sm btn-primary">Ver atrasos acumulados</a>
         <!-- <a href="{{route('register')}}" class="btn btn-sm btn-primary">Registrar nuevo personal</a> -->
         <!-- <a href="{{route('adm')}}" class="btn btn-sm btn-primary">Reportes</a> -->
 

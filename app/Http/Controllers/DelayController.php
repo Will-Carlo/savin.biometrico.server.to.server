@@ -30,9 +30,9 @@ class DelayController extends Controller
         $jsonUsersData = json_encode($dataSend);
 
         $response = Http::post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
+        $data = json_decode($response, true);
         
-        if ($response->successful()) {
-            $data = json_decode($response, true);
+        if ($response->successful()&& $data['idClient'] != 0) {
             $mesActual = Carbon::now()->month;
             $suma = DB::table('rrhh_asistencia')
                         ->where('id_personal', $data['idClient']) // ID específico que estás buscando
@@ -52,6 +52,9 @@ class DelayController extends Controller
             
 
         } else {
+            return view('/connection-error');
+
+
             $statusCode = $response->status();
             echo "La solicitud no fue exitosa. Código de estado: $statusCode";
         }
