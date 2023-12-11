@@ -22,11 +22,13 @@ class testWebsocket implements ShouldBroadcast
 
     public $data;
 
-    public function __construct()
+    public function __construct($data)
     {
         //
 
-        $this->data='soy un deita';
+        $this->data=$data;
+        // $this->data='hola mundo';
+
     }
 
     /**
@@ -36,6 +38,10 @@ class testWebsocket implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('testing');
+        return new Channel('wsverify');
+    }
+
+    public function broadcastAs(){
+        return 'wsverify';
     }
 }

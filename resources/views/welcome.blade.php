@@ -14,8 +14,8 @@
 @vite('resources/js/app.js')
 <script>
   setTimeout(() => {
-    window.Echo.channel('testing')
-      .listen('.App\\Events\\testWebsocket', (e)=> {
+    window.Echo.channel('wsverify')
+      .listen('.wsverify', (e)=> {
         console.log(e);
       });
   }, 200);
@@ -52,6 +52,7 @@
         });
     });
 </script>
+
 
 
 </html>

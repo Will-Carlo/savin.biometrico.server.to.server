@@ -47,9 +47,9 @@ class VerifyController extends Controller
         //$this->sendVerifyJson($jsonUsersData);
         //  function sendVerifyJson
 
-        // $response = Http::post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
-        $var = 'ip';
-        $response = Http::timeout(120)->post('http://$var:8089/verify', ['userData' => $jsonUsersData]);
+        $response = Http::post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
+        // $var = 'ip';
+        // $response = Http::timeout(120)->post('http://$var:8089/verify', ['userData' => $jsonUsersData]);
 
         // $response = Http::retry(2, 5,function($exception, $request){
         //     return $exception instanceof ConnectionException;

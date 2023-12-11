@@ -73,7 +73,7 @@ Route::controller(DelayController::class)->group(function(){
 
 Route::get('test', [SocketController::class, 'test']);
 Route::view('bbb', 'welcome');
-
+Route::post('/sendWS', [SocketController::class, 'verify-channel']);
 
 
 Route::get('/dashboard', function () {
