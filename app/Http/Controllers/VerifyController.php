@@ -14,7 +14,7 @@ use Illuminate\Http\Client\ConnectionException;
 
 class VerifyController extends Controller
 {
-    public function index(){
+    public function index(){    
         // $usersData = RrhhPersonal::select('id','finger')->get();
 
         // $usersData = RrhhPersonal::whereNotNull('finger')
@@ -48,8 +48,8 @@ class VerifyController extends Controller
         //  function sendVerifyJson
 
         // $response = Http::post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
-
-        $response = Http::timeout(120)->post('http://localhost:8089/verify', ['userData' => $jsonUsersData]);
+        $var = 'ip';
+        $response = Http::timeout(120)->post('http://$var:8089/verify', ['userData' => $jsonUsersData]);
 
         // $response = Http::retry(2, 5,function($exception, $request){
         //     return $exception instanceof ConnectionException;

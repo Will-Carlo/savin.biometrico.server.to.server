@@ -2,6 +2,10 @@
 
 @section('content')
 
+<button onclick="6()">Abrir Aplicación</button>
+<a href="savinfingerprintdetected://verify">Abrir Mi Aplicación 2.0</a>
+
+
 <!-- <div class="card">
     <div class="card-body">
       @if(session('shipping-report'))
@@ -10,10 +14,7 @@
       </div>
       @endif
     </div>
-  </div>
-  
-
-         -->
+  </div> -->
 
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="row">

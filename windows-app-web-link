@@ -1,0 +1,5 @@
+[{
+  "packageFamilyName" : "MyApp_SavinFingerprintDetected",
+  "paths" : [ "*" ],
+  "excludePaths" : [ "/news/*", "/blog/*" ]
+ }]

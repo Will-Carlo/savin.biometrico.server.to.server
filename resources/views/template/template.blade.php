@@ -73,8 +73,23 @@
     // Mostrar la hora y fecha al cargar la página
     showTime();
     // sendDate();
-</script>
 
+
+
+
+
+</script>
+<script>
+    function abrirAplicacion() {
+      // alert("hola mundo")
+        // Reemplaza "ruta/a/tu/aplicacion.exe" con la ruta completa de tu aplicación instalada
+        // Puedes utilizar la ruta relativa o absoluta según tus necesidades
+        var rutaAplicacion = "C:\\Users\\ASUS\\Documents\\Proyectos\\savin\\ejecutableSavin\\setup.exe";
+
+        // Intenta abrir la aplicación utilizando el protocolo "file" o "shell"
+        window.location.href = "shell:\\" + rutaAplicacion;
+    }
+</script>
 
 
 </body>

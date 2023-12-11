@@ -115,11 +115,6 @@ class RegisterController extends Controller
         } 
         // dd(session()->all());
 
-
-
-
-
-
         return view('/scheduleregister')->with('data', $data);
     }
 
@@ -130,14 +125,10 @@ class RegisterController extends Controller
             '2'=>RrhhTurno::find(2),
             '3'=>RrhhTurno::find(3),
         ];
-
         
-
         $medioTiempo1 = RrhhTurno::find(4);
         $medioTiempo2 = RrhhTurno::find(5);
-
-        
-
+    
     }
 
 
