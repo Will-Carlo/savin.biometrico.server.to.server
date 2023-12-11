@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\DelayController;
+use App\Http\Controllers\SocketController;
 use App\Models\User;
 
 
@@ -68,6 +69,10 @@ Route::controller(DelayController::class)->group(function(){
 
 
 
+// websocket routs
+
+Route::get('test', [SocketController::class, 'test']);
+Route::view('bbb', 'welcome');
 
 
 
